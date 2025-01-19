@@ -3,7 +3,7 @@ Encodear video/audio con Handbrake
 
 ### x264 con CRF
 
-Para encodear con Handbrake es mucho más fácil, es una app para Windows y macOS que permite encodear rapidamente:
+Para encodear con [Handbrake](https://handbrake.fr/) es mucho más fácil, es una app para Windows y macOS que permite encodear rapidamente:
 
 Al cargar el archivo a encodear, elijan Preajuste, y en la sección de Matroska; elijan para video 1080p "H.264 MKV 1080p30", o si es un video en 4K "H.265 MKV 2160p60 4K". En la pestaña Filtros, todos en Off, apagados.
 
