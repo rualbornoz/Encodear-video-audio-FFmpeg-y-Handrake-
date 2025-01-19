@@ -1,4 +1,4 @@
-Encodear con FFmpeg: H.264 (AVC) + FLAC
+Encodear video/audio con FFmpeg y Handbrake: H.264 (AVC) + FLAC
 =======================================
 
 Dejaré de lado a [MEncoder](https://web.archive.org/web/20200901183851/https://es.wikipedia.org/wiki/MEncoder), y usaré [FFmpeg](https://web.archive.org/web/20200901183851/https://es.wikipedia.org/wiki/FFmpeg).
@@ -196,35 +196,6 @@ Después de agregar todas las pistas, se puede agregar información de idioma o 
 
 `mkvmerge --language 1:eng --track-name 1:"Inglés FLAC 5.1" --language 2:spa --track-name 2:"Español AC3 5.1" --lenguage 3:spa --track-name 3:"Español SubRip" entrada.mkv -o salida.mkv`
 
-### Poner bitrate
-
-Si quieres un peso determinado o limitar los bits usa el [bitrate](https://web.archive.org/web/20200901183851/https://es.wikipedia.org/wiki/Bitrate), eso se puede ajustar con -b:v, adjuntando el numero del bitrate con una k de kBits o m de mBits al lado, los dos ejemplos brindan el mismo resultado, aunque k es más preciso:
-
-`ffmpeg -i entrada.mkv -c:v libx264 -b:v 4000k -c:a copy salida.mkv` `ffmpeg -i entrada.mkv -c:v libx264 -b:v 4m -c:a copy salida.mkv`
-
-Para audio agrega -b:a:
-
-`ffmpeg -i entrada.mkv -c:v copy -c:a libfaac -b:a 640k salida.mkv`
-
-### FPS
-
-Si queremos bajar los [FPS](https://web.archive.org/web/20200901183851/https://es.wikipedia.org/wiki/Im%C3%A1genes_por_segundo), por ejemplo a [24 (23.976)](https://web.archive.org/web/20200901183851/https://en.wikipedia.org/wiki/24p), se agrega -vf fps= (los dos ejemplos dan el mismo resultado):
-
-`ffmpeg -i entrada.mkv -c:v libx264 -vf fps=23.976 salida.mkv` `ffmpeg -i entrada.mkv -c:v libx264 -vf fps=24000/1001 salida.mkv`
-
-O entero pero sin subframes con -r:
-
-`ffmpeg -i entrada.mkv -c:v libx264 -r 24 salida.mkv`
-
-### Grabar escritorio, audio micrófono/cámara
-
-Para grabar todo el escritorio en video de alta calidad (salir: Q):
-
-`ffmpeg -f x11grab -s 1440x900 -framerate 30 -i :0.0 -c:v libx264 -qp 0 -preset ultrafast salida.mkv`
-
-Grabar audio desde el micrófono del notebook. O grabar video+audio desde la cámara del notebook (salir: Ctrl + C). Vean en alsamixer si tienen el micrófono en captura al 100 (Cambiar a captura alsamixer: TAB):
-
-`ffmpeg -f alsa -i pulse salida.wav` `ffmpeg -f video4linux2 -i /dev/video0 -f alsa -i pulse salida.mkv`
 
 Ayudas
 ------
