@@ -1,4 +1,4 @@
-Encodear video/audio con FFmpeg y Handbrake: H.264 (AVC) + FLAC
+Encodear video/audio con FFmpeg: H.264 (AVC) + FLAC
 =======================================
 
 Dejaré de lado a [MEncoder](https://web.archive.org/web/20200901183851/https://es.wikipedia.org/wiki/MEncoder), y usaré [FFmpeg](https://web.archive.org/web/20200901183851/https://es.wikipedia.org/wiki/FFmpeg).
