@@ -63,9 +63,9 @@ Configurando el encoder
 
 ### Usa CRF
 
-CRF tiene un [rango de medición de calidad entre 0 a 63 (en 10bit)](https://web.archive.org/web/20200901183851/https://trac.ffmpeg.org/wiki/Encode/H.264#a1.ChooseaCRFvalue), siendo 0 lo mejor y 63 lo peor. Recomiendo usar 17 para una calidad visual sin pérdidas (lossless). CRF utiliza una sola pasada constante:
+La opción CRF tiene un rango entre 18 a 23 (menor número más preserva calidad). Recomiendo usar 18 para una calidad visual sin pérdidas. CRF utiliza una sola pasada constante:
 
-`ffmpeg -i entrada.mkv -c:v libx264 -crf 17 -c:a copy salida.mkv`
+`ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -c:a copy salida.mkv`
 
 ### Otorgando 10-bit y Compresión
 
@@ -73,13 +73,13 @@ Usando un [Profile](https://web.archive.org/web/20200901183851/https://en.wikipe
 
 Para comprimir el archivo se usa un [Preset](https://web.archive.org/web/20200901183851/http://www.chaneru.com/Roku/HLS/X264_Settings.htm#preset), entre más lento el encodeo menor el tamaño del archivo y mejor calidad de imagen. Se puede usar medium (normal por defecto), slow (lento), slower (poco mas lento) o veryslow (muy lento):
 
-`ffmpeg -i entrada.mkv -c:v libx264 -preset medium -crf 17 -profile:v high10 -level 5.1 -c:a copy salida.mkv`
+`ffmpeg -i entrada.mkv -c:v libx264 -preset medium -crf 18 -profile:v high10 -level 5.1 -c:a copy salida.mkv`
 
 ### Compatibilidad con reproductor blu-ray o smart-TV 8-bit
 
 Para compatibilidad elimina los 10-bit, agrega level 4.1, un chroma 4:2:0 y también un profile high, así quedaría "-pix\_fmt yuv420p -level 4.1":
 
-`ffmpeg -i entrada.mkv -c:v libx264 -preset medium -crf 17 -profile:v high -level 4.1 -pix_fmt yuv420p -c:a copy salida.mkv`
+`ffmpeg -i entrada.mkv -c:v libx264 -preset medium -crf 18 -profile:v high -level 4.1 -pix_fmt yuv420p -c:a copy salida.mkv`
 
 Audio FLAC
 ----------
