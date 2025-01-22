@@ -1,7 +1,7 @@
 Encodear video/audio con Handbrake
 =======================================
 
-### x264 8-bit (AVC) con CRF
+### 1080p x264 8-bit (AVC) con CRF
 
 Para encodear con [Handbrake](https://handbrake.fr/) es mucho más fácil, es una app para Windows y macOS que permite encodear rapidamente:
 
@@ -12,7 +12,7 @@ En la pestaña Video, usa el codificador "H.264 (x264)". En Fotogramas (FPS), us
 En la pestaña Audio puedes usar una copia directa del audio que tenga al lado "Passthru". En subtitulos deshabilita la opción de "Quemar (Forzar)" para que no se peguen al video, o eliminalos.
 
 
-### x265 10-bit (HEVC) con CRF
+### 4K x265 10-bit (HEVC) con CRF
 
 Al cargar el archivo a encodear, elijan Preajuste, y en la sección de Matroska; elijan para 4K "H.265 MKV 2160p60 4K". En la pestaña Filtros, todos en Off, apagados.
 
