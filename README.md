@@ -63,7 +63,7 @@ Configurando el encoder
 
 ### Usa CRF
 
-La opción CRF tiene un rango entre 18 a 23 (menor número más preserva calidad). Recomiendo usar 18 para una calidad visual sin pérdidas. CRF utiliza una sola pasada constante:
+La opción CRF tiene un rango entre 18 a 23 (menor número más [preserva calidad](https://web.archive.org/web/20200819170950/https://slhck.info/video/2017/02/24/vbr-settings.html)). Recomiendo usar 18 para una calidad visual sin pérdidas. CRF utiliza una sola pasada constante:
 
 `ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -c:a copy salida.mkv`
 
