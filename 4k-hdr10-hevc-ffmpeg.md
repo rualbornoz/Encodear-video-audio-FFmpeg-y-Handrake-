@@ -40,7 +40,7 @@ Configurando el encoder
 
 Para esto hay que habilitar HEVC 10-bit, y eso se hace con un [Profile](https://web.archive.org/web/20200901183851/https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Profiles) main10 junto con un [Level](https://web.archive.org/web/20200901183851/https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Tiers_and_levels) 5.1. 
 
-La opción CRF en x265 tiene un rango entre 24 a 28 (menor número más [preserva calidad](https://web.archive.org/web/20200819170950/https://slhck.info/video/2017/02/24/vbr-settings.html)). Recomiendo usar 24 para una calidad visual sin pérdidas. 
+La opción CRF en x265 tiene un rango entre 18 a 24 (menor número más [preserva calidad](https://web.archive.org/web/20200819170950/https://slhck.info/video/2017/02/24/vbr-settings.html)). Recomiendo usar 18 para una calidad visual sin pérdidas. 
 
 ### Compresión
 
@@ -50,7 +50,7 @@ Para comprimir se usa [Preset](https://web.archive.org/web/20200901183851/https:
 
 Y para habilitar el contenido HDR necesitamos activar las opciones de x265 en x265-params, que son [hdr10](https://web.archive.org/web/20200901183851/https://x265.readthedocs.io/en/default/cli.html#cmdoption-hdr10) y [hdr10-opt](https://web.archive.org/web/20200901183851/https://x265.readthedocs.io/en/default/cli.html#cmdoption-hdr10-opt). Al igual que activar todas las opciones de bt2020. Y por último, también activar al inicio un chroma 4:2:0 para 10-bit, que es pix\_fmt yuv420p10le.
 
-`ffmpeg -i entrada.mkv -pix_fmt yuv420p10le -max_muxing_queue_size 9999 -c:v libx265 -crf 24 -profile:v main10 -x265-params level=5.1:hdr10=1:hdr10-opt=1::no-sao=1:aq-mode=3:max-merge=4:keyint=60:bframes=3:repeat-headers=1:colorprim=bt2020:transfer=smpte2084:colormatrix=bt2020nc:master-display="G(13250,34500)B(7500,3000)R(34000,16000)WP(15635,16450)L(10000000,500)" -c:a copy salida.mkv`
+`ffmpeg -i entrada.mkv -pix_fmt yuv420p10le -max_muxing_queue_size 9999 -c:v libx265 -crf 18 -profile:v main10 -x265-params level=5.1:hdr10=1:hdr10-opt=1::no-sao=1:aq-mode=3:max-merge=4:keyint=60:bframes=3:repeat-headers=1:colorprim=bt2020:transfer=smpte2084:colormatrix=bt2020nc:master-display="G(13250,34500)B(7500,3000)R(34000,16000)WP(15635,16450)L(10000000,500)" -c:a copy salida.mkv`
 
 Este encodeo es compatible con un televisor 4K HDR que lea archivos mkv (Sony, LG y Samsung ya leen archivos con HDR).
 
